@@ -1,0 +1,172 @@
+IT'S SHOWTIME
+    TALK TO THE HAND "VIENI CON ME SE VUOI CALCOLARE QUALCOSA"
+
+    HEY CHRISTMAS TREE operatore
+    YOU SET US UP 0
+
+    GET YOUR ASS TO MARS operatore
+    DO IT NOW ottieniOperatore
+
+    HEY CHRISTMAS TREE primooperando
+    YOU SET US UP 0
+
+    HEY CHRISTMAS TREE secondooperando
+    YOU SET US UP 0
+
+    GET YOUR ASS TO MARS primooperando
+    DO IT NOW ottieniOperando @NO PROBLEMO
+
+    GET YOUR ASS TO MARS secondooperando
+    DO IT NOW ottieniOperando @I LIED
+
+    HEY CHRISTMAS TREE risultato
+    YOU SET US UP 0
+
+    GET YOUR ASS TO MARS risultato
+    DO IT NOW calcolaRisultato primooperando secondooperando operatore
+
+    TALK TO THE HAND "IL TUO RISULTATO:"
+    TALK TO THE HAND risultato
+YOU HAVE BEEN TERMINATED
+
+LISTEN TO ME VERY CAREFULLY calcolaRisultato
+    I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE primoOperando
+    I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE secondoOperando
+    I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE operatore
+    GIVE THESE PEOPLE AIR
+
+    HEY CHRISTMAS TREE addizione
+    YOU SET US UP @I LIED
+    HEY CHRISTMAS TREE sottrazione
+    YOU SET US UP @I LIED
+    HEY CHRISTMAS TREE moltiplicazione
+    YOU SET US UP @I LIED
+    HEY CHRISTMAS TREE divisione
+    YOU SET US UP @I LIED
+
+    HEY CHRISTMAS TREE risultato
+    YOU SET US UP 0
+
+    GET TO THE CHOPPER addizione
+        HERE IS MY INVITATION operatore
+        YOU ARE NOT YOU YOU ARE ME 1
+    ENOUGH TALK
+    GET TO THE CHOPPER sottrazione
+        HERE IS MY INVITATION operatore
+        YOU ARE NOT YOU YOU ARE ME 2
+    ENOUGH TALK
+    GET TO THE CHOPPER moltiplicazione
+        HERE IS MY INVITATION operatore
+        YOU ARE NOT YOU YOU ARE ME 3
+    ENOUGH TALK
+    GET TO THE CHOPPER divisione
+        HERE IS MY INVITATION operatore
+        YOU ARE NOT YOU YOU ARE ME 4
+    ENOUGH TALK
+
+    BECAUSE I'M GOING TO SAY PLEASE addizione
+        GET TO THE CHOPPER risultato
+            HERE IS MY INVITATION primoOperando
+            GET UP secondoOperando
+        ENOUGH TALK
+    BULLSHIT
+        BECAUSE I'M GOING TO SAY PLEASE sottrazione
+            GET TO THE CHOPPER risultato
+                HERE IS MY INVITATION primoOperando
+                GET DOWN secondoOperando
+            ENOUGH TALK
+        BULLSHIT
+            BECAUSE I'M GOING TO SAY PLEASE moltiplicazione
+                GET TO THE CHOPPER risultato
+                    HERE IS MY INVITATION primoOperando
+                    YOU'RE FIRED secondoOperando
+                ENOUGH TALK
+            BULLSHIT
+                BECAUSE I'M GOING TO SAY PLEASE divisione
+                    GET TO THE CHOPPER risultato
+                        HERE IS MY INVITATION primoOperando
+                        HE HAD TO SPLIT secondoOperando
+                    ENOUGH TALK
+                BULLSHIT
+                    TALK TO THE HAND "QUALCOSA È ANDATO STORTO"
+                YOU HAVE NO RESPECT FOR LOGIC
+            YOU HAVE NO RESPECT FOR LOGIC
+        YOU HAVE NO RESPECT FOR LOGIC
+    YOU HAVE NO RESPECT FOR LOGIC
+
+    I'LL BE BACK risultato
+HASTA LA VISTA, BABY
+
+LISTEN TO ME VERY CAREFULLY ottieniOperando
+    I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE PrimoOperando
+    GIVE THESE PEOPLE AIR 
+
+    BECAUSE I'M GOING TO SAY PLEASE PrimoOperando
+        TALK TO THE HAND "INSERISCI PRIMO OPERANDO"
+    BULLSHIT
+        TALK TO THE HAND "INSERISCI SECONDO OPERANDO"
+    YOU HAVE NO RESPECT FOR LOGIC
+
+    HEY CHRISTMAS TREE operando
+    YOU SET US UP 0
+
+    GET YOUR ASS TO MARS operando
+        DO IT NOW 
+        I WANT TO ASK YOU A BUNCH OF QUESTIONS AND I WANT TO HAVE THEM ANSWERED IMMEDIATELY
+
+    I'LL BE BACK operando
+HASTA LA VISTA, BABY
+
+LISTEN TO ME VERY CAREFULLY ottieniOperatore
+    GIVE THESE PEOPLE AIR
+
+    HEY CHRISTMAS TREE serveOperatore
+    YOU SET US UP @NO PROBLEMO
+
+    TALK TO THE HAND "SELEZIONA L'OPERAZIONE DA FARE:"
+    TALK TO THE HAND "	1.) +"
+    TALK TO THE HAND "	2.) -" 
+    TALK TO THE HAND "	3.) *"
+    TALK TO THE HAND "	4.) /"
+
+    HEY CHRISTMAS TREE operatore
+    YOU SET US UP 0
+
+    HEY CHRISTMAS TREE inputValido
+    YOU SET US UP @I LIED
+    HEY CHRISTMAS TREE maggioreDiZero
+    YOU SET US UP @I LIED
+    HEY CHRISTMAS TREE minoreDiCinque
+    YOU SET US UP @I LIED
+
+    STICK AROUND serveOperatore
+        GET YOUR ASS TO MARS operatore
+            DO IT NOW
+            I WANT TO ASK YOU A BUNCH OF QUESTIONS AND I WANT TO HAVE THEM ANSWERED IMMEDIATELY
+
+        GET TO THE CHOPPER maggioreDiZero
+            HERE IS MY INVITATION operatore
+            LET OFF SOME STEAM BENNET 0
+        ENOUGH TALK
+
+        GET TO THE CHOPPER minoreDiCinque
+            HERE IS MY INVITATION 5
+            LET OFF SOME STEAM BENNET operatore
+        ENOUGH TALK
+
+        GET TO THE CHOPPER inputValido
+            HERE IS MY INVITATION maggioreDiZero
+            KNOCK KNOCK minoreDiCinque
+        ENOUGH TALK
+
+        BECAUSE I'M GOING TO SAY PLEASE inputValido
+            GET TO THE CHOPPER serveOperatore
+                HERE IS MY INVITATION @I LIED
+            ENOUGH TALK
+        BULLSHIT
+            TALK TO THE HAND "RISPOSTA ERRATA, RIPROVA"
+        YOU HAVE NO RESPECT FOR LOGIC
+    CHILL
+
+    I'LL BE BACK operatore
+HASTA LA VISTA, BABY
